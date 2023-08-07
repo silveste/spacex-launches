@@ -85,6 +85,7 @@ export default function Filters({ filtersApplied, applyFilters, disabled }) {
         aria-modal="true"
         open={!!popoverAnchor}
         anchorEl={popoverAnchor}
+        onClose={togglePopover}
         anchorOrigin={{
           vertical: "bottom",
           horizontal: "right",
