@@ -1,6 +1,7 @@
 "use client";
 import { Typography, Box, Container, Divider } from "@mui/material";
 import Filters from "../components/Filters";
+import LaunchesList from "../components/LaunchesList";
 import { useService } from "../hooks/services";
 import { useCallback } from "react";
 import { LaunchType, Sort } from "../constants";
@@ -14,7 +15,6 @@ const initialFiltersState = {
 
 export default function Home() {
   const [getData, data] = useService();
-  console.log(data);
 
   const setFilters = useCallback((filters) => {
     console.log(filters);
@@ -37,9 +37,7 @@ export default function Home() {
         />
       </Box>
       <Divider />
-      <Box component="main" minHeight="80vh">
-        Bingo
-      </Box>
+      <LaunchesList data={data.data?.docs} status={data.status} />
       <Box component="footer">footer</Box>
     </Container>
   );
