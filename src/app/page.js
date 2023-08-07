@@ -1,5 +1,5 @@
 "use client";
-import { Box, Container } from "@mui/material";
+import { Typography, Box, Container, Divider } from "@mui/material";
 import Filters from "../components/Filters";
 import { useService } from "../hooks/services";
 import { useCallback } from "react";
@@ -29,13 +29,14 @@ export default function Home() {
         alignItems="baseline"
         py={2}
       >
-        <h1>SpaceX Launches</h1>
+        <Typography variant="h4">SpaceX Launches</Typography>
         <Filters
           filtersApplied={initialFiltersState}
           applyFilters={(filters) => console.log("APPLY FILOTERS: ", filters)}
           disabled={false}
         />
       </Box>
+      <Divider />
       <Box component="main" minHeight="80vh">
         Bingo
       </Box>
