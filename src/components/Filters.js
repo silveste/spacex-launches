@@ -53,10 +53,6 @@ export default function Filters({ filtersApplied, applyFilters, disabled }) {
     return keys.every((key) => filtersApplied[key] === filters[key]);
   }, [filtersApplied, filters]);
 
-  console.log(filters);
-  console.log(filtersApplied);
-  console.log(isFilterSync);
-
   const togglePopover = useCallback(
     (e) => setPopoverAnchor((prev) => (prev ? null : e.currentTarget)),
     []
