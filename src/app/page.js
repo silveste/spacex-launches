@@ -6,22 +6,20 @@ export default function Home() {
   const [getData, data] = useService();
   console.log(data);
   return (
-    <Container maxWidth="lg" sx={{ backgroundColor: "red" }}>
+    <Container maxWidth="lg">
       <Box
         component="header"
         display="flex"
         justifyContent="space-between"
-        sx={{ backgroundColor: "green" }}
+        py={2}
       >
         <h1>SpaceX Launches</h1>
         <select>Filters</select>
       </Box>
-      <Box component="main" minHeight="80vh" backgroundColor="yellow">
+      <Box component="main" minHeight="80vh">
         Bingo
       </Box>
-      <Box component="footer" backgroundColor="blue">
-        footer
-      </Box>
+      <Box component="footer">footer</Box>
     </Container>
   );
 }
