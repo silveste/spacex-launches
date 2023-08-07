@@ -1,6 +1,10 @@
-import { Container } from "@mui/material";
+"use client";
+import { Box, Container } from "@mui/material";
+import { useService } from "../hooks/services";
 
 export default function Home() {
+  const [getData, data] = useService();
+  console.log(data);
   return (
     <Container maxWidth="lg" sx={{ backgroundColor: "red" }}>
       <Box
