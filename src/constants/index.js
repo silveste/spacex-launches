@@ -6,12 +6,17 @@ export const ServiceStatus = {
 };
 
 export const LaunchType = {
-  UPCOMMING: "UPCOMMING",
+  UPCOMING: "UPCOMING",
   PAST: "PAST",
   UNSUCCESSFUL: "UNSUCCESSFUL",
 };
 
 export const Sort = {
-  ASC: "ASC",
-  DES: "DES",
+  ASC: "asc",
+  DESC: "desc",
+};
+
+export const Action = {
+  UPDATE: "UPDATE_FILTERS",
+  SET_PAGE: "SET_PAGE",
 };

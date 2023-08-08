@@ -1,30 +1,31 @@
 "use client";
+import { useContext } from "react";
 import { Typography, Box, Container, Divider } from "@mui/material";
 import Filters from "../components/Filters";
 import LaunchesList from "../components/LaunchesList";
 import Pagination from "../components/Pagination";
 import { useService } from "../hooks/services";
+import { globalStateContext } from "../store/GlobalStateProvider";
 import { useCallback } from "react";
-import { LaunchType, Sort, ServiceStatus } from "../constants";
-
-const initialFiltersState = {
-  [LaunchType.UPCOMMING]: false,
-  [LaunchType.PAST]: false,
-  [LaunchType.UNSUCCESSFUL]: false,
-  sort: Sort.ASC,
-};
+import { ServiceStatus, Action } from "../constants";
 
 export default function Home() {
-  const [getData, data] = useService();
+  const [state, dispatch] = useContext(globalStateContext);
+  const [, data] = useService();
 
-  console.log(data);
-  const setFilters = useCallback((filters) => {
-    console.log(filters);
-  }, []);
+  const setFilters = useCallback(
+    (filters) => {
+      dispatch({ type: Action.UPDATE, payload: filters });
+    },
+    [dispatch]
+  );
 
-  const pageChangeHandler = useCallback((a) => {
-    console.log(a);
-  }, []);
+  const pageChangeHandler = useCallback(
+    (newPage) => {
+      dispatch({ type: Action.SET_PAGE, payload: newPage });
+    },
+    [dispatch]
+  );
 
   return (
     <Container maxWidth="lg">
@@ -37,9 +38,9 @@ export default function Home() {
       >
         <Typography variant="h4">SpaceX Launches</Typography>
         <Filters
-          filtersApplied={initialFiltersState}
-          applyFilters={(filters) => console.log("APPLY FILOTERS: ", filters)}
-          disabled={false}
+          filtersApplied={state}
+          applyFilters={setFilters}
+          disabled={data.status !== ServiceStatus.SUCCESS}
         />
       </Box>
       <Divider />

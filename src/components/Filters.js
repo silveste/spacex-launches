@@ -20,7 +20,7 @@ const REPLACE_FILTERS = "replace-filters";
 const filtersReducer = (state, action) => {
   switch (action.type) {
     case LaunchType.PAST:
-    case LaunchType.UPCOMMING:
+    case LaunchType.UPCOMING:
     case LaunchType.UNSUCCESSFUL:
       return {
         ...state,
@@ -97,9 +97,9 @@ export default function Filters({ filtersApplied, applyFilters, disabled }) {
         <Box p={2}>
           <FormGroup>
             <FormControlLabel
-              checked={filters[LaunchType.UPCOMMING]}
+              checked={filters[LaunchType.UPCOMING]}
               control={<Checkbox />}
-              onChange={() => dispatchFilter({ type: LaunchType.UPCOMMING })}
+              onChange={() => dispatchFilter({ type: LaunchType.UPCOMING })}
               label="Upcomming launches"
             />
             <FormControlLabel
