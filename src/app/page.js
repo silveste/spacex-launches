@@ -2,9 +2,10 @@
 import { Typography, Box, Container, Divider } from "@mui/material";
 import Filters from "../components/Filters";
 import LaunchesList from "../components/LaunchesList";
+import Pagination from "../components/Pagination";
 import { useService } from "../hooks/services";
 import { useCallback } from "react";
-import { LaunchType, Sort } from "../constants";
+import { LaunchType, Sort, ServiceStatus } from "../constants";
 
 const initialFiltersState = {
   [LaunchType.UPCOMMING]: false,
@@ -16,8 +17,13 @@ const initialFiltersState = {
 export default function Home() {
   const [getData, data] = useService();
 
+  console.log(data);
   const setFilters = useCallback((filters) => {
     console.log(filters);
+  }, []);
+
+  const pageChangeHandler = useCallback((a) => {
+    console.log(a);
   }, []);
 
   return (
@@ -38,7 +44,13 @@ export default function Home() {
       </Box>
       <Divider />
       <LaunchesList data={data.data?.docs} status={data.status} />
-      <Box component="footer">footer</Box>
+      {data.status === ServiceStatus.SUCCESS && (
+        <Pagination
+          current={data.data.page}
+          max={data.data.totalPages}
+          onChange={pageChangeHandler}
+        />
+      )}
     </Container>
   );
 }
