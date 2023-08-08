@@ -4,7 +4,6 @@ import {
   FormControl,
   FormControlLabel,
   FormLabel,
-  RadioGroup,
   Radio,
   Checkbox,
   Button,
@@ -28,7 +27,7 @@ const filtersReducer = (state, action) => {
         [action.type]: !state[action.type],
       };
     case Sort.ASC:
-    case Sort.DES:
+    case Sort.DESC:
       return {
         ...state,
         sort: action.type,
@@ -131,12 +130,12 @@ export default function Filters({ filtersApplied, applyFilters, disabled }) {
               }
             />
             <FormControlLabel
-              value={Sort.DES}
+              value={Sort.DESC}
               control={<Radio />}
               label="Descending"
-              checked={filters.sort === Sort.DES}
+              checked={filters.sort === Sort.DESC}
               onChange={(_, checked) =>
-                checked && dispatchFilter({ type: Sort.DES })
+                checked && dispatchFilter({ type: Sort.DESC })
               }
             />
           </FormControl>
