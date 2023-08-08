@@ -1,5 +1,5 @@
 "use client";
-import { createContext, useReducer } from "react";
+import { createContext, useReducer, useEffect } from "react";
 import { LaunchType, Action, Sort } from "../constants";
 
 export const globalStateContext = createContext();
@@ -31,10 +31,18 @@ const globalReducer = (state, action) => {
 };
 
 const GlobalStateProvider = (props) => {
-  const [state, dispatch] = useReducer(globalReducer, initialGlobalState);
+  const localStorageState = JSON.parse(localStorage.getItem("state"));
+
+  const [state, dispatch] = useReducer(globalReducer, {
+    ...initialGlobalState,
+    ...localStorageState,
+  });
+
+  useEffect(() => {
+    localStorage.setItem("state", JSON.stringify(state));
+  }, [state]);
 
   return (
-    // this is the provider providing state
     <globalStateContext.Provider value={[state, dispatch]}>
       {props.children}
     </globalStateContext.Provider>
