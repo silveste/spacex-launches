@@ -20,51 +20,15 @@ export default function ItemPlaceholder() {
         sx={{ alignSelf: "center" }}
       />
       <Skeleton variant="rounded" width="100%" height="1rem" />
-      <Skeleton
-        variant="rounded"
-        width={`${70 + Math.random() * 30}%`}
-        height="1rem"
-      />
-      <Skeleton
-        variant="rounded"
-        width={`${70 + Math.random() * 30}%`}
-        height="1rem"
-      />
-      <Skeleton
-        variant="rounded"
-        width={`${70 + Math.random() * 30}%`}
-        height="1rem"
-      />
-      <Skeleton
-        variant="rounded"
-        width={`${70 + Math.random() * 30}%`}
-        height="1rem"
-      />
-      <Skeleton
-        variant="rounded"
-        width={`${70 + Math.random() * 30}%`}
-        height="1rem"
-      />
-      <Skeleton
-        variant="rounded"
-        width={`${70 + Math.random() * 30}%`}
-        height="1rem"
-      />
-      <Skeleton
-        variant="rounded"
-        width={`${70 + Math.random() * 30}%`}
-        height="1rem"
-      />
-      <Skeleton
-        variant="rounded"
-        width={`${70 + Math.random() * 30}%`}
-        height="1rem"
-      />
-      <Skeleton
-        variant="rounded"
-        width={`${70 + Math.random() * 30}%`}
-        height="1rem"
-      />
+      <Skeleton variant="rounded" width="87%" height="1rem" />
+      <Skeleton variant="rounded" width="87%" height="1rem" />
+      <Skeleton variant="rounded" width="87%" height="1rem" />
+      <Skeleton variant="rounded" width="78%" height="1rem" />
+      <Skeleton variant="rounded" width="73%" height="1rem" />
+      <Skeleton variant="rounded" width="54%" height="1rem" />
+      <Skeleton variant="rounded" width="97%" height="1rem" />
+      <Skeleton variant="rounded" width="90%" height="1rem" />
+      <Skeleton variant="rounded" width="65%" height="1rem" />
     </Card>
   );
 }
